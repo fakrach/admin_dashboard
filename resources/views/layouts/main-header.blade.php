@@ -94,7 +94,7 @@
 											</div>
 											<div class="wd-90p">
 												<div class="d-flex">
-													<h5 class="mb-1 name">Petey Cruiser</h5>
+													<h5 class="mb-1 name">{{Auth::user()->name}}</h5>
 												</div>
 												<p class="mb-0 desc">I'm sorry but i'm not sure how to help you with that......</p>
 												<p class="time mb-0 text-left float-right mr-2 mt-2">Mar 15 3:55 PM</p>
@@ -254,7 +254,7 @@
 										<div class="d-flex wd-100p">
 											<div class="main-img-user"><img alt="" src="{{URL::asset('assets/img/faces/6.jpg')}}" class=""></div>
 											<div class="mr-3 my-auto">
-												<h6>Petey Cruiser</h6><span>Premium Member</span>
+												<h6>{{Auth::user()->name}}</h6><span>Premium Member</span>
 											</div>
 										</div>
 									</div>
