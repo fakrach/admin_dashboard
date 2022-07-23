@@ -24,6 +24,12 @@ class AdminController extends Controller
      //   return view($id);
     }
 
+    public function profile()
+    {
+        
+        return view('profile.profile');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
