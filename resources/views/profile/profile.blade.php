@@ -86,16 +86,13 @@
 										<form role="form">
 											<div class="form-group">
 												<label for="FullName">Full Name</label>
-												<input type="text" value="John Doe" id="FullName" class="form-control">
+												<input type="text" value="{{Auth::user()->name}}" id="FullName" class="form-control">
 											</div>
 											<div class="form-group">
 												<label for="Email">Email</label>
-												<input type="email" value="first.last@example.com" id="Email" class="form-control">
+												<input type="email" value="{{Auth::user()->email}}" id="Email" class="form-control">
 											</div>
-											<div class="form-group">
-												<label for="Username">Username</label>
-												<input type="text" value="john" id="Username" class="form-control">
-											</div>
+											
 											<div class="form-group">
 												<label for="Password">Password</label>
 												<input type="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
@@ -106,7 +103,7 @@
 											</div>
 											<div class="form-group">
 												<label for="AboutMe">About Me</label>
-												<textarea id="AboutMe" class="form-control">Loren gypsum dolor sit mate, consecrate disciplining lit, tied diam nonunion nib modernism tincidunt it Loretta dolor manga Amalia erst volute. Ur wise denim ad minim venial, quid nostrum exercise ration perambulator suspicious cortisol nil it applique ex ea commodore consequent.</textarea>
+												<textarea id="AboutMe" class="form-control">{{Auth::user()->bio}}</textarea>
 											</div>
 											<button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
 										</form>
