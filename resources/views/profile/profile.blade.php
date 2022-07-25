@@ -83,14 +83,14 @@
 									</div>
 									
 									<div class="tab-pane" id="settings">
-										<form role="form">
+										<form methode="post">
 											<div class="form-group">
 												<label for="FullName">Full Name</label>
-												<input type="text" value="{{Auth::user()->name}}" id="FullName" class="form-control">
+												<input type="text" placeholder="{{Auth::user()->name}}" id="FullName" class="form-control">
 											</div>
 											<div class="form-group">
 												<label for="Email">Email</label>
-												<input type="email" value="{{Auth::user()->email}}" id="Email" class="form-control">
+												<input type="email" placeholder="{{Auth::user()->email}}" id="Email" class="form-control">
 											</div>
 											
 											<div class="form-group">

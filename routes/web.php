@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\productController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +20,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profile',[App\Http\Controllers\AdminController::class,'profile'])->name('profile');
-Route::get('/{page}', [App\Http\Controllers\AdminController::class,'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/profile',[AdminController::class,'profile'])->name('profile');
+//Route::get('/products',[productController::class,'index'])->name('products');
+Route::get('/{page}', [AdminController::class,'index']);
 
 
 
