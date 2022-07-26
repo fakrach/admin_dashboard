@@ -238,20 +238,11 @@
 									<h6 class="card-title mb-1">File Upload</h6>
 									<p class="text-muted card-sub-title">Dropify is a jQuery plugin to create a beautiful file uploader that converts a standard <code>input type="file"</code> into a nice drag & drop zone with previews and custom styles.</p>
 								</div>
-								<div class="row mb-4">
-									<div class="col-sm-12 col-md-4">
-										<input type="file" class="dropify" data-height="200" />
-									</div>
-									<div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
-										<input type="file" class="dropify" data-default-file="{{URL::asset('assets/img/photos/1.jpg')}}" data-height="200"  />
-									</div>
-									<div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
-										<input type="file" class="dropify" disabled="disabled"  />
-									</div>
+								
+								<div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
+										<input type="file" class="dropify" data-default-file="{{URL::asset('assets/img/1 (2).jpg')}}" data-height="200"  />
 								</div>
-								<div>
-									<input id="demo" type="file" name="files" accept=".jpg, .png, image/jpeg, image/png, html, zip, css,js" multiple>
-								</div>
+						
 							</div>
 						</div>
 					</div>

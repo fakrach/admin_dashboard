@@ -17,6 +17,13 @@ class ProductController extends Controller
         return view('product.products');
     }
 
+
+    public function add()
+    {
+        
+        return view('product.addProduct');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

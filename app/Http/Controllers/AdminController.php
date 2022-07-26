@@ -30,6 +30,8 @@ class AdminController extends Controller
         return view('profile.profile');
     }
 
+  
+
     /**
      * Show the form for creating a new resource.
      *
