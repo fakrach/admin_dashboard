@@ -172,29 +172,34 @@
 							</div>
 						</div>
 						<div class="row row-sm ">
-							<div class="col-md-6 col-lg-6 col-xl-4  col-sm-6">
-								<div class="card bg-dark">
-									<div class="card-body">
-										<div class="pro-img-box">
-											<img class="w-100" src="{{URL::asset('assets/img/1 (2).jpg')}}" alt="product-image">
-											<a href="#" class="adtocart"> <i class="las la-shopping-cart "></i></a>
-										</div>
-										<div class="text-center pt-3">
-											<h3 class="h6 mb-2 mt-4 text-light font-weight-bold text-uppercase">FLOWER POT</h3>
-											<h4 class="h5 mb-0 mt-2 text-center font-weight-bold text-success">$26 <span class="text-danger font-weight-normal tx-13 ml-1 prev-price">$59</span></h4>
-										</div>
-										<div>
-											<a name="" id="" class="btn btn-primary" href="#" role="button">show</a>
+							
+							@foreach($products as $product)
+								<div class="col-md-6 col-lg-6 col-xl-4  col-sm-6">
+									<div class="card bg-dark">
+										<div class="card-body">
+											<div class="pro-img-box">
+												<img class="w-100" src="{{URL::asset('assets/img/1 (2).jpg')}}" alt="product-image">
+												<a href="#" class="adtocart"> <i class="las la-shopping-cart "></i></a>
+											</div>
+											<div class="text-center pt-3">
+												<h3 class="h6 mb-2 mt-4 text-light font-weight-bold text-uppercase">{{$product->title}}</h3>
+												<h4 class="h5 mb-0 mt-2 text-center font-weight-bold text-success">{{$product->price}} <span class="text-danger font-weight-normal tx-13 ml-1 prev-price">{{$product->oldPrice}}</span></h4>
+											</div>
+											<div>
+												<a name="" id="" class="btn btn-primary" href="{{route('product.show',$product->id)}}" role="button">show</a>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
+							@endforeach
 							
-							
-							
+						</div>
+						<div class="d-flex justify-content-center">
+							{{$products->links()}}
 						</div>
 					</div>
 				</div>
+				
 				<!-- row closed -->
 			</div>
 			<!-- Container closed -->
