@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -41,8 +42,25 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        $request->validate([
+            'title' => ['required', 'unique:products', 'min:4','max:70'],
+            'description'=> ['required',  'min:14','max:300'],
+            'price'=>['required'],
+        ]);
+        $product = new product();
+        $product->title=$request->title;
+        $product->slug=Str::slug($request->title);
+        $product->category=$request->category;
+        $product->image=$request->image;
+        $product->description=$request->description;
+        $product->price=$request->price;
+        $product->oldPrice=$request->oldPrice;
+        $product->save();
+        
+        return redirect()->route('add.product')->with([
+            'success'=>"product added"
+        ]);
     }
 
     /**

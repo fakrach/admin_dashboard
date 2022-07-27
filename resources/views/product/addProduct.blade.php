@@ -19,25 +19,40 @@
                     
                 <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12">
 						<div class="card  box-shadow-0 bg-dark p-3">
+							@if ($errors->any())
+								<div class="alert alert-danger">
+									<ul>
+										@foreach ($errors->all() as $error)
+											<li>{{ $error }}</li>
+										@endforeach
+									</ul>
+								</div>
+							@endif
+							@if(session()->has('success'))
+							<div class="alert alert-success">
+									{{session()->get('success')}}
+								</div>
+							@endif
 							<div class="card-body pt-0">
-								<form >
+								<form action="{{route('store')}}" method="post">
+									@csrf
 									<div >
 										<div class="form-group text-white">
 											<label for="exampleInputEmail1">Title</label>
-											<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
+											<input type="text" class="form-control" name="title" placeholder="Enter title">
 										</div>
                                         <div class="mb-4">
                                             <p class="mg-b-10 text-white">Category</p>
-                                            <select name="somename" class="form-control SlectBox" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                                            <select name="category" class="form-control SlectBox" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
                                                 <!--placeholder-->
-                                                <option title="Volvo is a car"  value="volvo">Volvo</option>
-                                                <option value="saab">Saab</option>
-                                                <option value="mercedes">Mercedes</option>
-                                                <option value="audi">Audi</option>
-                                                <option title="Volvo is a car"  value="volvo">Volvo</option>
-                                                <option value="saab">Saab</option>
-                                                <option value="mercedes">Mercedes</option>
-                                                <option value="audi">Audi</option>
+                                                <option  value="volvo">Volvo</option>
+                                                <option  value="saab">Saab</option>
+                                                <option  value="mercedes">Mercedes</option>
+                                                <option  value="audi">Audi</option>
+                                                <option  value="volvo">Volvo</option>
+                                                <option  value="saab">Saab</option>
+                                                <option  value="mercedes">Mercedes</option>
+                                                <option  value="audi">Audi</option>
                                             </select>
 								        </div>
                                         
@@ -48,20 +63,24 @@
                                                     <h6 class="card-title  p-2">product image</h6>
                                                 </div>
                                                 
-                                                <div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
-                                                        <input type="file" class="dropify" data-default-file="{{URL::asset('assets/img/1 (2).jpg')}}" data-height="200"  />
-                                                </div>
+                                                <div class="mb-3">
+													<input class="form-control" type="file" name="image">
+												</div>
                                         
                                             </div>
 						                </div>
 
                                         <div class="form-group">
                                             <p class="mg-b-10 text-white">Description</p>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="product descrition" rows="3"></textarea>
+                                            <textarea class="form-control" name="description" placeholder="product descrition" rows="3"></textarea>
                                         </div>
                                         <div class="form-group text-white">
 											<label for="exampleInputEmail1">Price</label>
-											<input type="number" class="form-control" id="exampleInputEmail1" placeholder="product price">
+											<input type="number" class="form-control" name="price" placeholder="product price">
+										</div>
+										<div class="form-group text-white">
+											<label for="exampleInputEmail1">oldPrice</label>
+											<input type="number" class="form-control" name="oldPrice" placeholder="product price">
 										</div>
 									</div>
 
