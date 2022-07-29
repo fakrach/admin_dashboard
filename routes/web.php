@@ -25,7 +25,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/profile',[AdminController::class,'profile'])->name('profile');
 Route::get('/add/product', [productController::class,'add'])->name('add.product');
 Route::post('/store', [productController::class,'store'])->name('store');
-Route::get('/product/details/{$id}', [productController::class,'details'])->name('product.show');
+Route::get('/details/{$slug}', [productController::class,'show'])->name('product.show');
 Route::get('/{page}', [AdminController::class,'index']);
 
 

@@ -177,6 +177,7 @@
 								<div class="col-md-6 col-lg-6 col-xl-4  col-sm-6">
 									<div class="card bg-dark">
 										<div class="card-body">
+											@csrf
 											<div class="pro-img-box">
 												<img class="w-100" src="{{URL::asset('assets/img/1 (2).jpg')}}" alt="product-image">
 												<a href="#" class="adtocart"> <i class="las la-shopping-cart "></i></a>
@@ -186,7 +187,7 @@
 												<h4 class="h5 mb-0 mt-2 text-center font-weight-bold text-success">{{$product->price}} <span class="text-danger font-weight-normal tx-13 ml-1 prev-price">{{$product->oldPrice}}</span></h4>
 											</div>
 											<div>
-												<a name="" id="" class="btn btn-primary" href="{{route('product.show',$product->id)}}" role="button">show</a>
+												<a name="" id="" class="btn btn-primary" href="{{route('product.show',$product->slug)}}" role="button">show</a>
 											</div>
 										</div>
 									</div>

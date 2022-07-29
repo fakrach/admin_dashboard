@@ -72,19 +72,14 @@ class ProductController extends Controller
      * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(product $product)
+    public function show($slug)
     {
-        
-    }
-
-    public function details($id)
-    {
-        $product = product::find($id);
-        return view('productDetails')->with([
-            'product'=> $product
+        return view('product.products-details')->with([
+            'product'=> product::where('slug',$slug)->first()
         ]);
     }
 
+   
     /**
      * Show the form for editing the specified resource.
      *
