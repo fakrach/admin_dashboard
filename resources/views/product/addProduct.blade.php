@@ -80,7 +80,11 @@
 										</div>
 										<div class="form-group text-white">
 											<label for="exampleInputEmail1">oldPrice</label>
-											<input type="number" class="form-control" name="oldPrice" placeholder="product price">
+											<input type="number" class="form-control" name="oldPrice" placeholder="product oldprice">
+										</div>
+										<div class="form-group text-white">
+											<label for="exampleInputEmail1">quantity</label>
+											<input type="number" class="form-control" name="quantity" placeholder="quantity of product ">
 										</div>
 									</div>
 

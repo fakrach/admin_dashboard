@@ -59,6 +59,7 @@ class ProductController extends Controller
         $product->description=$request->description;
         $product->price=$request->price;
         $product->oldPrice=$request->oldPrice;
+        $product->quantity=$request->quantity;
         $product->save();
         
         return redirect()->route('add.product')->with([
@@ -72,9 +73,9 @@ class ProductController extends Controller
      * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Request $request,$slug)
     {
-        return view('product.products-details')->with([
+        return view('product.product-details')->with([
             'product'=> product::where('slug',$slug)->first()
         ]);
     }
@@ -98,9 +99,28 @@ class ProductController extends Controller
      * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, product $product)
+    public function update(Request $request, $slug)
     {
-        //
+        $request->validate([
+            'title' => ['required', 'unique:products', 'min:4','max:70'],
+            'description'=> ['required',  'min:14','max:300'],
+            'price'=>['required'],
+        ]);
+        $product = product::where('slug',$slug)->first();
+        $product->update([
+            'title'=>$request->title,
+            'slug'=>Str::slug($request->title),
+            'category'=>$request->category,
+            'image'=>$request->image,
+            'description'=>$request->description,
+            'price'=>$request->price,
+            'oldPrice'=>$request->oldPrice,
+            'quantity'=>$request->quantity
+        ]);
+       
+        return view('products')->with([
+            'updated'=>"product updated!!"
+        ]);
     }
 
     /**

@@ -13,36 +13,99 @@
 							<h4 class="content-title mb-0 my-auto">Ecommerce</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Product-details</span>
 						</div>
 					</div>
-					<div class="d-flex my-xl-auto right-content">
-						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-info btn-icon ml-2"><i class="mdi mdi-filter-variant"></i></button>
-						</div>
-						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-danger btn-icon ml-2"><i class="mdi mdi-star"></i></button>
-						</div>
-						<div class="pr-1 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-warning  btn-icon ml-2"><i class="mdi mdi-refresh"></i></button>
-						</div>
-						<div class="mb-3 mb-xl-0">
-							<div class="btn-group dropdown">
-								<button type="button" class="btn btn-primary">14 Aug 2019</button>
-								<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" id="dropdownMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="sr-only">Toggle Dropdown</span>
-								</button>
-								<div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuDate" data-x-placement="bottom-end">
-									<a class="dropdown-item" href="#">2015</a>
-									<a class="dropdown-item" href="#">2016</a>
-									<a class="dropdown-item" href="#">2017</a>
-									<a class="dropdown-item" href="#">2018</a>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 				<!-- breadcrumb -->
 @endsection
 @section('content')
+				<div class="modal fade" id="ajouter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					@if ($errors->any())
+						<div class="alert alert-danger">
+							<ul>
+								@foreach ($errors->all() as $error)
+									<li>{{ $error }}</li>
+								@endforeach
+							</ul>
+						</div>
+					@endif
+					<div class="modal-header">
+						<h5 class="modal-title text-primary" id="exampleModalLabel">Edit product</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+						<form action="{{route('product.edit',$product->slug)}}" method="post">
+							@method('PUT')
+							<div class="modal-body">
+							 
+								@csrf
+								<div >
+									<div class="form-group text-primary">
+										<label for="exampleInputEmail1">Title</label>
+										<input type="text" class="form-control" name="title" value="{{$product->title}}">
+									</div>
+									<div class="mb-4">
+										<p class="mg-b-10 text-primary">Category</p>
+										<select name="category" class="form-control SlectBox" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+											<!--placeholder-->
+											<option  value="volvo">Volvo</option>
+											<option  value="saab">Saab</option>
+											<option  value="mercedes">Mercedes</option>
+											<option  value="audi">Audi</option>
+											<option  value="volvo">Volvo</option>
+											<option  value="saab">Saab</option>
+											<option  value="mercedes">Mercedes</option>
+											<option  value="audi">Audi</option>
+										</select>
+									</div>
+									
+									
+									<div class="card">
+										<div class="card-body">
+											<div>
+												<h6 class="card-title text-primary p-2">product image</h6>
+											</div>
+											
+											<div class="mb-3">
+												<input class="form-control" type="file" name="image">
+											</div>
+									
+										</div>
+									</div>
+
+									<div class="form-group">
+										<p class="mg-b-10 text-primary">Description</p>
+										<textarea class="form-control text-dark" name="description" placeholder="{{$product->description}}" rows="3"></textarea>
+									</div>
+									<div class="form-group text-primary">
+										<label for="exampleInputEmail1">Price</label>
+										<input type="number" class="form-control" name="price" value="{{$product->price}}" >
+									</div>
+									<div class="form-group text-primary">
+										<label for="exampleInputEmail1">oldPrice</label>
+										<input type="number" class="form-control" name="oldPrice" value="{{$product->oldPrice}}">
+									</div>
+									<div class="form-group text-primary">
+										<label for="exampleInputEmail1">quantity</label>
+										<input type="number" class="form-control" name="quantity" value="{{$product->quantity}}">
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="submit" name="save" class="btn btn-primary">Save</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				</div>
 				<!-- row -->
+				@if(session()->has('success'))
+							<div class="alert alert-success">
+									{{session()->get('success')}}
+								</div>
+							@endif
 				<div class="row row-sm">
 					<div class="col-xl-12">
 						<div class="card">
@@ -51,35 +114,16 @@
 									<div class=" col-xl-5 col-lg-12 col-md-12">
 										<div class="preview-pic tab-content">
 										  <div class="tab-pane active" id="pic-1"><img src="{{URL::asset('assets/img/ecommerce/shirt-5.png')}}" alt="image"/></div>
-										  <div class="tab-pane" id="pic-2"><img src="{{URL::asset('assets/img/ecommerce/shirt-2.png')}}" alt="image"/></div>
-										  <div class="tab-pane" id="pic-3"><img src="{{URL::asset('assets/img/ecommerce/shirt-3.png')}}" alt="image"/></div>
-										  <div class="tab-pane" id="pic-4"><img src="{{URL::asset('assets/img/ecommerce/shirt-4.png')}}" alt="image"/></div>
-										  <div class="tab-pane" id="pic-5"><img src="{{URL::asset('assets/img/ecommerce/shirt-1.png')}}" alt="image"/></div>
+										  
 										</div>
-										<ul class="preview-thumbnail nav nav-tabs">
-										  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{URL::asset('assets/img/ecommerce/shirt-5.png')}}" alt="image"/></a></li>
-										  <li><a data-target="#pic-2" data-toggle="tab"><img src="{{URL::asset('assets/img/ecommerce/shirt-2.png')}}" alt="image"/></a></li>
-										  <li><a data-target="#pic-3" data-toggle="tab"><img src="{{URL::asset('assets/img/ecommerce/shirt-3.png')}}" alt="image"/></a></li>
-										  <li><a data-target="#pic-4" data-toggle="tab"><img src="{{URL::asset('assets/img/ecommerce/shirt-4.png')}}" alt="image"/></a></li>
-										  <li><a data-target="#pic-5" data-toggle="tab"><img src="{{URL::asset('assets/img/ecommerce/shirt-1.png')}}" alt="image"/></a></li>
-										</ul>
 									</div>
 									<div class="details col-xl-7 col-lg-12 col-md-12 mt-4 mt-xl-0">
-										<h4 class="product-title mb-1">RED TSHIRT</h4>
-										<p class="text-muted tx-13 mb-1">Men red & Grey Checked Casual Shirt</p>
-										<div class="rating mb-1">
-											<div class="stars">
-												<span class="fa fa-star checked"></span>
-												<span class="fa fa-star checked"></span>
-												<span class="fa fa-star checked"></span>
-												<span class="fa fa-star text-muted"></span>
-												<span class="fa fa-star text-muted"></span>
-											</div>
-											<span class="review-no">41 reviews</span>
-										</div>
-										<h6 class="price">current price: <span class="h3 ml-2">$180</span></h6>
-										<p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-										<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+										<h4 class="product-title mb-1">{{$product->title}}</h4>
+										<p class="text-muted tx-13 mb-1">Category : {{$product->category}}</p>
+										
+										<h6 class="price">current price: <span class="h3 ml-2 text-success">$ {{$product->price}}</span></h6>
+										<p class="product-description">{{$product->description}}</p>
+										
 										<div class="sizes d-flex">sizes:
 											<span class="size d-flex"  data-toggle="tooltip" title="small"><label class="rdiobox mb-0"><input checked="" name="rdio" type="radio"> <span class="font-weight-bold">s</span></label></span>
 											<span class="size d-flex"  data-toggle="tooltip" title="medium"><label class="rdiobox mb-0"><input name="rdio" type="radio"> <span>m</span></label></span>
@@ -113,28 +157,17 @@
 														<span class="colorinput-color bg-pink"></span>
 													</label>
 												</div>
+												
 											</div>
+											
 										</div>
-										<div class="d-flex  mt-2">
-											<div class="mt-2 product-title">Quantity:</div>
-											<div class="d-flex ml-2">
-												<ul class=" mb-0 qunatity-list">
-													<li>
-														<div class="form-group">
-															<select name="quantity" id="select-countries17" class="form-control nice-select wd-100">
-																<option value="1" selected="">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-															</select>
-														</div>
-													</li>
-												</ul>
+										<div class="d-flex mt-4">
+												<h5 class="mt-2 product-title">Quantity: <span>  {{$product->quantity}}</span></h5>
 											</div>
-										</div>
 										<div class="action">
-											<button class="add-to-cart btn btn-danger" type="button">ADD TO WISHLIST</button>
-											<button class="add-to-cart btn btn-success" type="button">ADD TO CART</button>
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajouter">
+											Edit Product
+										</button>
 										</div>
 									</div>
 								</div>
@@ -143,104 +176,6 @@
 					</div>
 				</div>
 				<!-- /row -->
-
-				<!-- row -->
-				<div class="row">
-					<div class="col-lg-3">
-						<div class="card item-card">
-							<div class="card-body pb-0 h-100">
-								<div class="text-center">
-									<img src="{{URL::asset('assets/img/ecommerce/01.jpg')}}" alt="img" class="img-fluid">
-								</div>
-								<div class="card-body cardbody relative">
-									<div class="cardtitle">
-										<span>Items</span>
-										<a>Sport shoes</a>
-									</div>
-									<div class="cardprice">
-										<span class="type--strikethrough">$999</span>
-										<span>$799</span>
-									</div>
-								</div>
-							</div>
-							<div class="text-center border-top pt-3 pb-3 pl-2 pr-2 ">
-								<a href="#" class="btn btn-primary"> View More</a>
-								<a href="#" class="btn btn-success"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="card item-card">
-							<div class="card-body pb-0 h-100">
-								<div class="text-center">
-									<img src="{{URL::asset('assets/img/ecommerce/04.jpg')}}" alt="img" class="img-fluid">
-								</div>
-								<div class="card-body cardbody relative">
-									<div class="cardtitle">
-										<span>Fashion</span>
-										<a>Mens Shoes</a>
-									</div>
-									<div class="cardprice">
-										<span class="type--strikethrough">$999</span>
-										<span>$799</span>
-									</div>
-								</div>
-							</div>
-							<div class="text-center border-top pt-3 pb-3 pl-2 pr-2 ">
-								<a href="#" class="btn btn-primary"> View More</a>
-								<a href="#" class="btn btn-success"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="card item-card">
-							<div class="card-body pb-0 h-100">
-								<div class="text-center">
-									<img src="{{URL::asset('assets/img/ecommerce/07.jpg')}}" alt="img" class="img-fluid">
-								</div>
-								<div class="card-body cardbody relative ">
-									<div class="cardtitle">
-										<span>Accessories</span>
-										<a>Metal Watch</a>
-									</div>
-									<div class="cardprice">
-										<span class="type--strikethrough">$999</span>
-										<span>$799</span>
-									</div>
-								</div>
-							</div>
-							<div class="text-center border-top pt-3 pb-3 pl-2 pr-2 ">
-								<a href="#" class="btn btn-primary"> View More</a>
-								<a href="#" class="btn btn-success"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="card item-card">
-							<div class="card-body pb-0 h-100">
-								<div class="text-center">
-									<img src="{{URL::asset('assets/img/ecommerce/08.jpg')}}" alt="img" class="img-fluid">
-								</div>
-								<div class="card-body cardbody relative">
-									<div class="cardtitle">
-										<span>Accessories</span>
-										<a>Metal Watch</a>
-									</div>
-									<div class="cardprice">
-										<span class="type--strikethrough">$999</span>
-										<span>$799</span>
-									</div>
-								</div>
-							</div>
-							<div class="text-center border-top pt-3 pb-3 pl-2 pr-2 ">
-								<a href="#" class="btn btn-primary"> View More</a>
-								<a href="#" class="btn btn-success"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
-
 				<!-- row -->
 				<div class="row row-sm">
 					<div class="col-md-12 col-xl-4 col-xs-12 col-sm-12">
@@ -278,7 +213,6 @@
 						</div>
 					</div>
 				</div>
-				<!-- row closed -->
 			</div>
 			<!-- Container closed -->
 		</div>
