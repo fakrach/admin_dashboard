@@ -27,6 +27,7 @@ Route::get('/add/product', [productController::class,'add'])->name('add.product'
 Route::post('/store', [productController::class,'store'])->name('store');
 Route::get('/product/details/{slug}', [productController::class,'show'])->name('product.show');
 Route::put('/produc/edit/{slug}', [productController::class,'update'])->name('product.edit');
+Route::delete('/produc/delet/{slug}', [productController::class,'delete'])->name('product.delet');
 Route::get('/{page}', [AdminController::class,'index']);
 
 

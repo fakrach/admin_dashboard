@@ -17,18 +17,10 @@
 				<!-- breadcrumb -->
 @endsection
 @section('content')
-				<div class="modal fade" id="ajouter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
-					@if ($errors->any())
-						<div class="alert alert-danger">
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+					
 					<div class="modal-header">
 						<h5 class="modal-title text-primary" id="exampleModalLabel">Edit product</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -100,12 +92,46 @@
 					</div>
 				</div>
 				</div>
+				<div class="modal fade" id="delet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					
+						<div class="modal-header">
+							<h5 class="modal-title text-primary" id="exampleModalLabel">delet product</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<form action="{{route('product.delet',$product->slug)}}" method="post">
+							@csrf
+							@method('DELETE')
+							<div class="form-group text-primary">
+									<h4 class='text-danger'>are you sure about this operation</h4>
+							</div>
+							<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="submit" name="save" class="btn btn-danger">Delet</button>
+							</div>
+						</form>
+						
+					</div>
+				</div>
+				</div>
 				<!-- row -->
-				@if(session()->has('success'))
-							<div class="alert alert-success">
-									{{session()->get('success')}}
-								</div>
-							@endif
+				@if(session()->has('update'))
+					<div class="alert alert-success">
+						{{session()->get('update')}}
+					</div>
+				@endif
+				@if ($errors->any())
+						<div class="alert alert-danger">
+							<ul>
+								@foreach ($errors->all() as $error)
+									<li>{{ $error }}</li>
+								@endforeach
+							</ul>
+						</div>
+				@endif
 				<div class="row row-sm">
 					<div class="col-xl-12">
 						<div class="card">
@@ -165,8 +191,11 @@
 												<h5 class="mt-2 product-title">Quantity: <span>  {{$product->quantity}}</span></h5>
 											</div>
 										<div class="action">
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajouter">
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">
 											Edit Product
+										</button>
+										<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delet">
+											Delet Product
 										</button>
 										</div>
 									</div>

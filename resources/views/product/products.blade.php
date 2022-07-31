@@ -15,11 +15,7 @@
 @endsection
 @section('content')
 				<!-- row -->
-				@if(session()->has('updated'))
-					<div class="alert alert-success">
-						{{session()->get('updated')}}
-					</div>
-				@endif
+				
 				<div class="row row-sm">
 					<div class="col-xl-3 col-lg-3 col-md-12 mb-3 mb-md-0">
 						<div class="card">
@@ -176,7 +172,18 @@
 								</div>
 							</div>
 						</div>
+						@if(session()->has('delet'))
+								<div class="alert alert-success">
+									{{session()->get('delet')}}
+								</div>
+							@endif
+							@if(session()->has('success'))
+								<div class="alert alert-success">
+										{{session()->get('success')}}
+									</div>
+							@endif
 						<div class="row row-sm ">
+							
 							
 							@foreach($products as $product)
 								<div class="col-md-6 col-lg-6 col-xl-4  col-sm-6">

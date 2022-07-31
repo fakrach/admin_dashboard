@@ -62,7 +62,7 @@ class ProductController extends Controller
         $product->quantity=$request->quantity;
         $product->save();
         
-        return redirect()->route('add.product')->with([
+        return redirect()->route('products')->with([
             'success'=>"product added"
         ]);
     }
@@ -102,7 +102,7 @@ class ProductController extends Controller
     public function update(Request $request, $slug)
     {
         $request->validate([
-            'title' => ['required', 'unique:products', 'min:4','max:70'],
+            'title' => ['required', 'min:4','max:70'],
             'description'=> ['required',  'min:14','max:300'],
             'price'=>['required'],
         ]);
@@ -117,9 +117,8 @@ class ProductController extends Controller
             'oldPrice'=>$request->oldPrice,
             'quantity'=>$request->quantity
         ]);
-       
-        return view('products')->with([
-            'updated'=>"product updated!!"
+        return redirect()->route('product.show',$product->slug)->with([
+            'update'=>'product updated successfly!!'
         ]);
     }
 
@@ -129,8 +128,12 @@ class ProductController extends Controller
      * @param  \App\Models\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(product $product)
+    public function delete($slug)
     {
-        //
+        $product = product::where('slug',$slug)->first();
+        $product->delete();
+        return redirect()->route('products')->with([
+            'delet'=>'product deleted successfly!!'
+        ]);
     }
 }
