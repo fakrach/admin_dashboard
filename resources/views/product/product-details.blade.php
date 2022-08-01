@@ -27,7 +27,7 @@
 						<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-						<form action="{{route('product.edit',$product->slug)}}" method="post">
+						<form action="{{route('product.edit',$product->slug)}}" method="post" enctype="multipart/form-data">
 							@method('PUT')
 							<div class="modal-body">
 							 
@@ -139,7 +139,7 @@
 								<div class="row row-sm ">
 									<div class=" col-xl-5 col-lg-12 col-md-12">
 										<div class="preview-pic tab-content">
-										  <div class="tab-pane active" id="pic-1"><img src="{{URL::asset('assets/img/ecommerce/shirt-5.png')}}" alt="image"/></div>
+										  <div class="tab-pane active" id="pic-1"><img src="{{URL::asset('./uploads/'.$product->image)}}" alt="image"/></div>
 										  
 										</div>
 									</div>

@@ -50,16 +50,22 @@ class ProductController extends Controller
             'title' => ['required', 'unique:products', 'min:4','max:70'],
             'description'=> ['required',  'min:14','max:300'],
             'price'=>['required'],
+            'image'=>['required'],
         ]);
         $product = new product();
         $product->title=$request->title;
         $product->slug=Str::slug($request->title);
         $product->category=$request->category;
-        $product->image=$request->image;
         $product->description=$request->description;
         $product->price=$request->price;
         $product->oldPrice=$request->oldPrice;
         $product->quantity=$request->quantity;
+        if($request->has('image')){
+            $file = $request->image;
+            $image_name = time()."_".$file->getClientOriginalName();
+            $file->move(public_path('uploads'),$image_name);
+            $product->image=$image_name;
+        }
         $product->save();
         
         return redirect()->route('products')->with([
@@ -107,11 +113,18 @@ class ProductController extends Controller
             'price'=>['required'],
         ]);
         $product = product::where('slug',$slug)->first();
+        if($request->has('image')){
+            $file = $request->image;
+            $image_name = time()."_".$file->getClientOriginalName();
+            $file->move(public_path('uploads'),$image_name);
+            unlink(public_path('uploads/'.$product->image));
+            $product->image=$image_name;
+        }
         $product->update([
             'title'=>$request->title,
             'slug'=>Str::slug($request->title),
             'category'=>$request->category,
-            'image'=>$request->image,
+            'image'=>$product->image,
             'description'=>$request->description,
             'price'=>$request->price,
             'oldPrice'=>$request->oldPrice,

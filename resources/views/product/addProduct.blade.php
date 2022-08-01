@@ -34,7 +34,7 @@
 								</div>
 							@endif
 							<div class="card-body pt-0">
-								<form action="{{route('store')}}" method="post">
+								<form action="{{route('store')}}" method="post"  enctype="multipart/form-data">
 									@csrf
 									<div >
 										<div class="form-group text-white">

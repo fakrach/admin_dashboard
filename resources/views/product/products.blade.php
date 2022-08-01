@@ -191,7 +191,7 @@
 										<div class="card-body">
 											@csrf
 											<div class="pro-img-box">
-												<img class="w-100" src="{{URL::asset('assets/img/1 (2).jpg')}}" alt="product-image">
+												<img class="w-100" src="{{URL::asset('./uploads/'.$product->image)}}" alt="product-image">
 												<a href="#" class="adtocart"> <i class="las la-shopping-cart "></i></a>
 											</div>
 											<div class="text-center pt-3">
