@@ -50,7 +50,7 @@ class ProductController extends Controller
             'title' => ['required', 'unique:products', 'min:4','max:70'],
             'description'=> ['required',  'min:14','max:300'],
             'price'=>['required'],
-            'image'=>['required'],
+            'image'=>['required' ,'image','max:2048','mimes:png,jpg,jpeg']
         ]);
         $product = new product();
         $product->title=$request->title;
@@ -111,6 +111,7 @@ class ProductController extends Controller
             'title' => ['required', 'min:4','max:70'],
             'description'=> ['required',  'min:14','max:300'],
             'price'=>['required'],
+            'image'=>['image','max:2048','mimes:png,jpg,jpeg']
         ]);
         $product = product::where('slug',$slug)->first();
         if($request->has('image')){
