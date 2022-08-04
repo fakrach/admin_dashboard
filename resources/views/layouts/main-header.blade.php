@@ -46,8 +46,8 @@
 											</div>
 										</div>
 									</div>
-									<a class="dropdown-item" href="{{route('profile')}}"><i class="bx bx-user-circle"></i>Profile</a>
-									<a class="dropdown-item" href="{{route('profile')}}"><i class="bx bx-cog"></i> Edit Profile</a>
+									<a class="dropdown-item" href="{{url('user/profile')}}"><i class="bx bx-user-circle"></i>Profile</a>
+									<a class="dropdown-item" href="{{url('user/profile')}}"><i class="bx bx-cog"></i> Edit Profile</a>
 									
 									<a class="dropdown-item" href="{{ route('logout') }}"
                                      onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
