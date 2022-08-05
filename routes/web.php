@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\CustomersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/orders',[OrdersController::class,'index'])->name('orders');
+Route::get('/customers',[CustomersController::class,'index'])->name('customers');
 Route::get('/products',[productController::class,'index'])->name('products');
 Route::get('/add/product', [productController::class,'add'])->name('add.product');
 Route::post('/store', [productController::class,'store'])->name('store');

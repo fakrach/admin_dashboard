@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\orders;
+use App\Models\Customers;
 use Illuminate\Http\Request;
 
-class OrdersController extends Controller
+class CustomersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = Orders::all();
-        return view('clients.orders')->with([
-            'orders' => $orders
+        $customers = Customers::all();
+        return view('clients.customers')->with([
+            'customers' => $customers
         ]);
     }
 
@@ -44,10 +44,10 @@ class OrdersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\orders  $orders
+     * @param  \App\Models\Customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function show(orders $orders)
+    public function show(Customers $customers)
     {
         //
     }
@@ -55,10 +55,10 @@ class OrdersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\orders  $orders
+     * @param  \App\Models\Customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function edit(orders $orders)
+    public function edit(Customers $customers)
     {
         //
     }
@@ -67,10 +67,10 @@ class OrdersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\orders  $orders
+     * @param  \App\Models\Customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, orders $orders)
+    public function update(Request $request, Customers $customers)
     {
         //
     }
@@ -78,10 +78,10 @@ class OrdersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\orders  $orders
+     * @param  \App\Models\Customers  $customers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(orders $orders)
+    public function destroy(Customers $customers)
     {
         //
     }
