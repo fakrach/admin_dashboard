@@ -8,9 +8,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        {{ __('home') }}
-                    </x-jet-nav-link>
+                    <a href="{{url('/dashboard')}}">Home</a>
                 </div>
             </div>
 
@@ -35,10 +33,8 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                {{ __('home') }}
-            </x-jet-responsive-nav-link>
+        <div class="pt-2 pb-1 space-y-1">
+            <a href="{{url('/dashboard')}}">Home</a>
         </div>
 
         <!-- Responsive Settings Options -->

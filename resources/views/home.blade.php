@@ -10,26 +10,10 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="left-content">
 						<div>
-						  <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">Hi, welcome back!</h2>
-						  <p class="mg-b-0">Sales monitoring dashboard template.</p>
+						  <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">Home</h2>
 						</div>
 					</div>
-					<div class="main-dashboard-header-right">
-						<div>
-							<label class="tx-13">Customer Ratings</label>
-							<div class="main-star">
-								<i class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i class="typcn typcn-star"></i> <span>(14,873)</span>
-							</div>
-						</div>
-						<div>
-							<label class="tx-13">Online Sales</label>
-							<h5>563,275</h5>
-						</div>
-						<div>
-							<label class="tx-13">Offline Sales</label>
-							<h5>783,675</h5>
-						</div>
-					</div>
+					
 				</div>
 				<!-- /breadcrumb -->
 @endsection
@@ -136,20 +120,20 @@
 									<h4 class="card-title mb-0">Order status</h4>
 									<i class="mdi mdi-dots-horizontal text-gray"></i>
 								</div>
-								<p class="tx-12 text-muted mb-0">Order Status and Tracking. Track your order from ship date to arrival. To begin, enter your order number.</p>
+								
 							</div>
 							<div class="card-body">
 								<div class="total-revenue">
 									<div>
-									  <h4>120,750</h4>
+									  <h4>131</h4>
 									  <label><span class="bg-primary"></span>success</label>
 									</div>
 									<div>
-									  <h4>56,108</h4>
+									  <h4>35</h4>
 									  <label><span class="bg-danger"></span>Pending</label>
 									</div>
 									<div>
-									  <h4>32,895</h4>
+									  <h4>14</h4>
 									  <label><span class="bg-warning"></span>Failed</label>
 									</div>
 								  </div>

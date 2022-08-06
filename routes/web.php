@@ -24,6 +24,7 @@ Route::get('/', function () {
 
 
 Auth::routes();
+Route::get('/home',[AdminController::class,'index'])->name('home');
 Route::get('/orders',[OrdersController::class,'index'])->name('orders');
 Route::get('/customers',[CustomersController::class,'index'])->name('customers');
 Route::get('/products',[productController::class,'index'])->name('products');
