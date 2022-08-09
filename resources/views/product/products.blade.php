@@ -66,99 +66,10 @@
 										<option value="4">Health care Appliances</option>
 									</select>
 								</div>
-								<div class="form-group mt-2">
-									<label class="form-label">Sport,Books & More </label>
-									<select name="beast" id="select-beast4" class="form-control  nice-select  custom-select">
-										<option value="0">--Select--</option>
-										<option value="1">Stationery</option>
-										<option value="2">Books</option>
-										<option value="3">Gaming</option>
-										<option value="4">Music</option>
-										<option value="5">Exercise & fitness</option>
-									</select>
-								</div>
+								
 							</div>
-							<div class="card-header border-bottom border-top pt-3 pb-3 mb-0 font-weight-bold text-uppercase">Filter</div>
-							<div class="card-body">
-								<form role="form product-form">
-									<div class="form-group">
-										<label>Brand</label>
-										<select class="form-control nice-select">
-											<option>Wallmart</option>
-											<option>Catseye</option>
-											<option>Moonsoon</option>
-											<option>Textmart</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<label>Type</label>
-										<select class="form-control nice-select">
-											<option>Small</option>
-											<option>Medium</option>
-											<option>Large</option>
-											<option>Extra Large</option>
-										</select>
-									</div>
-								</form>
-							</div>
-							<div class="card-header border-bottom border-top pt-3 pb-3 mb-0 font-weight-bold text-uppercase">Rating</div>
-							<div class="py-2 px-3">
-								<label class="p-1 mt-2 d-flex align-items-center">
-									<span class="check-box mb-0">
-										<span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-									</span>
-									<span class="ml-3 tx-16 my-auto">
-										<i class="ion ion-md-star  text-warning"></i>
-										<i class="ion ion-md-star  text-warning"></i>
-										<i class="ion ion-md-star  text-warning"></i>
-										<i class="ion ion-md-star  text-warning"></i>
-										<i class="ion ion-md-star  text-warning"></i>
-									</span>
-								</label>
-								<label class="p-1 mt-2 d-flex align-items-center">
-									<span class="check-box mb-0">
-										<span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-									</span>
-									<span class="ml-3 tx-16 my-auto">
-										<i class="ion ion-md-star  text-warning"></i>
-										<i class="ion ion-md-star  text-warning"></i>
-										<i class="ion ion-md-star  text-warning"></i>
-										<i class="ion ion-md-star  text-warning"></i>
-									</span>
-								</label>
-								<label class="p-1 mt-2 d-flex align-items-center">
-									<span class="check-box mb-0">
-										<span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-									</span>
-									<span class="ml-3 tx-16 my-auto">
-										<i class="ion ion-md-star  text-warning"></i>
-										<i class="ion ion-md-star  text-warning"></i>
-										<i class="ion ion-md-star  text-warning"></i>
-									</span>
-								</label>
-								<label class="p-1 mt-2 d-flex align-items-center">
-									<span class="checkbox mb-0">
-										<span class="check-box">
-											<span class="ckbox"><input type="checkbox"><span></span></span>
-										</span>
-									</span>
-									<span class="ml-3 tx-16 my-auto">
-										<i class="ion ion-md-star  text-warning"></i>
-										<i class="ion ion-md-star  text-warning"></i>
-									</span>
-								</label>
-								<label class="p-1 mt-2 d-flex align-items-center">
-									<span class="checkbox mb-0">
-										<span class="check-box">
-											<span class="ckbox"><input type="checkbox"><span></span></span>
-										</span>
-									</span>
-									<span class="ml-3 tx-16 my-auto">
-										<i class="ion ion-md-star  text-warning"></i>
-									</span>
-								</label>
-								<button class="btn btn-primary-gradient mt-2 mb-2 pb-2" type="submit">Filter</button>
-							</div>
+							
+							
 						</div>
 					</div>
 					<div class="col-xl-9 col-lg-9 col-md-12">

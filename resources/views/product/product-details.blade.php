@@ -41,14 +41,12 @@
 										<p class="mg-b-10 text-primary">Category</p>
 										<select name="category" class="form-control SlectBox" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
 											<!--placeholder-->
-											<option  value="volvo">Volvo</option>
-											<option  value="saab">Saab</option>
-											<option  value="mercedes">Mercedes</option>
-											<option  value="audi">Audi</option>
-											<option  value="volvo">Volvo</option>
-											<option  value="saab">Saab</option>
-											<option  value="mercedes">Mercedes</option>
-											<option  value="audi">Audi</option>
+												<option  value="Computer">Computer</option>
+                                                <option  value="Home">Home</option>
+                                                <option  value="mercedes">Bags & Shoes</option>
+												<option  value="Phones">Phones</option>
+                                                <option  value="audi">Men's Fashion</option>
+                                                <option  value="Women's Fashion">Women's Fashion</option>
 										</select>
 									</div>
 									
